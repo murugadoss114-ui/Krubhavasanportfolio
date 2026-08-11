@@ -1,0 +1,1891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Krubhavasan | Portfolio</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================== */
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #050509;
+            --card: rgba(10, 10, 20, 0.92);
+            --text: #f0f6fc;
+            --muted: #8b949e;
+            --green: #2ea043;
+            --border: #30363d;
+            --shadow: rgba(46, 160, 67, 0.25);
+        }
+
+        body.light {
+            --bg: #f4f6f8;
+            --card: #ffffff;
+            --text: #111827;
+            --muted: #555f6d;
+            --border: #d0d7de;
+        }
+
+        body {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.75),
+                rgba(0, 0, 0, 0.75)),
+                url("bg.jpg.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+            color: var(--text);
+            min-height: 100vh;
+
+            animation: fadeIn 1s ease;
+        }
+
+        body.light {
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.88),
+                rgba(255, 255, 255, 0.88)),
+                url("bg.jpg.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            width: 100%;
+            padding: 15px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(5, 5, 9, 0.88);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        body.light nav {
+            background: rgba(255, 255, 255, 0.88);
+        }
+
+        .logo {
+            color: var(--green);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-btn,
+        .menu-btn {
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text);
+
+            cursor: pointer;
+
+            border-radius: 10px;
+
+            padding: 8px 11px;
+
+            font-size: 18px;
+        }
+
+        .theme-btn:hover,
+        .menu-btn:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .menu-btn {
+            display: none;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================== */
+
+        .container {
+            width: min(1000px, 92%);
+            margin: auto;
+            padding: 35px 0;
+        }
+
+
+        /* =========================
+           PROFILE
+        ========================== */
+
+        .profile {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 25px;
+
+            padding: 45px 25px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            transition: 0.3s;
+
+            animation: slideDown 1s ease;
+        }
+
+        .profile:hover {
+            transform: translateY(-6px);
+
+            border-color: var(--green);
+
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+
+        /* =========================
+           STATUS BADGE
+        ========================== */
+
+        .status {
+            display: inline-block;
+
+            padding: 7px 14px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid var(--green);
+
+            border-radius: 20px;
+
+            color: var(--green);
+
+            font-size: 14px;
+
+            font-weight: bold;
+        }
+
+        .status span {
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+
+            50% {
+                opacity: 0.3;
+            }
+
+        }
+
+
+        /* =========================
+           PROFILE IMAGE
+        ========================== */
+
+        .profile img {
+            width: 170px;
+            height: 170px;
+
+            border-radius: 50%;
+
+            object-fit: cover;
+
+            border: 4px solid var(--green);
+
+            margin-bottom: 18px;
+
+            transition: 0.4s;
+        }
+
+        .profile img:hover {
+            transform: scale(1.08) rotate(3deg);
+
+            box-shadow: 0 0 30px var(--shadow);
+        }
+
+     .profile h1 {
+    font-family: "Inter", sans-serif;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+        /* =========================
+           TYPING ANIMATION
+        ========================== */
+
+        #typing {
+            min-height: 25px;
+
+            color: var(--muted) !important;
+
+            font-size: 17px;
+
+            letter-spacing: 1px;
+        }
+
+
+        /* =========================
+           HERO BUTTONS
+        ========================== */
+
+        .hero-buttons {
+            margin-top: 25px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            border-radius: 10px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: var(--green);
+            color: white;
+        }
+
+        .secondary-btn {
+            border: 1px solid var(--green);
+            color: var(--green);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 20px var(--shadow);
+        }
+
+
+        /* =========================
+           STATISTICS
+        ========================== */
+
+        .stats {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 55px;
+
+            margin-top: 30px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid var(--border);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat h3 {
+            color: var(--green);
+
+            font-size: 28px;
+        }
+
+        .stat p {
+            color: var(--muted);
+
+            margin-top: 5px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================== */
+
+        .card {
+            background: var(--card);
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 28px;
+
+            margin-bottom: 25px;
+
+            transition: 0.3s;
+
+            animation: slideUp 1s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: var(--green);
+
+            box-shadow: 0 15px 35px var(--shadow);
+        }
+
+        .card h2 {
+            color: var(--green);
+
+            margin-bottom: 20px;
+
+            display: inline-block;
+
+            border-bottom: 2px solid var(--green);
+
+            padding-bottom: 6px;
+        }
+
+        .card p {
+            line-height: 1.7;
+
+            color: var(--text);
+        }
+
+
+        /* =========================
+           LIST
+        ========================== */
+
+        ul {
+            margin-left: 22px;
+        }
+
+        li {
+            margin: 11px 0;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================== */
+
+        .project-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .project {
+            padding: 22px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+
+            border-color: var(--green);
+
+            box-shadow: 0 10px 25px var(--shadow);
+        }
+
+        .project h3 {
+            color: var(--green);
+
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            color: var(--muted);
+
+            line-height: 1.6;
+        }
+
+        .project a {
+            display: inline-block;
+
+            margin-top: 15px;
+
+            color: var(--green);
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           TECHNOLOGY TAGS
+        ========================== */
+
+        .tech-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 16px;
+        }
+
+        .tech-tags span {
+            padding: 6px 10px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            color: var(--green);
+
+            background: rgba(46, 160, 67, 0.08);
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-container {
+            display: flex;
+
+            justify-content: space-around;
+
+            align-items: center;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 10px;
+
+            min-width: 100px;
+
+            transition: 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .contact-item img {
+            width: 45px;
+
+            height: 45px;
+
+            object-fit: contain;
+
+            transition: 0.3s;
+        }
+
+        .contact-item:hover img {
+            transform: scale(1.15);
+        }
+
+        .contact-item a {
+            color: var(--text);
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            color: var(--green);
+        }
+
+
+        /* =========================
+           COPY PHONE BUTTON
+        ========================== */
+
+        .copy-btn {
+            margin-top: 5px;
+
+            padding: 6px 10px;
+
+            border: 1px solid var(--green);
+
+            border-radius: 8px;
+
+            background: transparent;
+
+            color: var(--green);
+
+            cursor: pointer;
+
+            font-size: 11px;
+
+            transition: 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--green);
+
+            color: white;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 25px;
+
+            color: var(--muted);
+        }
+
+        footer span {
+            color: var(--green);
+        }
+
+        .footer-time {
+            margin-top: 8px;
+
+            font-size: 13px;
+
+            color: var(--muted);
+        }
+
+
+        /* =========================
+           SCROLL TOP
+        ========================== */
+
+        #topBtn {
+            position: fixed;
+
+            right: 20px;
+
+            bottom: 20px;
+
+            width: 45px;
+
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: var(--green);
+
+            color: white;
+
+            font-size: 20px;
+
+            cursor: pointer;
+
+            display: none;
+
+            z-index: 999;
+        }
+
+        #topBtn:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+        @keyframes slideDown {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(-40px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+        @keyframes slideUp {
+
+            from {
+                opacity: 0;
+
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media screen and (max-width: 768px) {
+
+            nav {
+                padding: 14px 5%;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 65px;
+
+                left: 0;
+
+                width: 100%;
+
+                background: var(--card);
+
+                flex-direction: column;
+
+                align-items: center;
+
+                padding: 20px 0;
+
+                display: none;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .profile {
+                padding: 35px 20px;
+            }
+
+            .profile img {
+                width: 135px;
+
+                height: 135px;
+            }
+
+            .profile h1 {
+                font-size: 30px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card h2 {
+                font-size: 21px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                justify-content: space-evenly;
+            }
+
+            .contact-item {
+                min-width: 80px;
+            }
+
+            .stats {
+                gap: 20px;
+            }
+
+            .stat h3 {
+                font-size: 23px;
+            }
+
+            .stat p {
+                font-size: 12px;
+            }
+
+            #typing {
+                font-size: 15px;
+            }
+
+            .tech-tags span {
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#skills">Skills</a>
+            </li>
+
+            <li>
+                <a href="#projects">Projects</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+
+        <div class="nav-buttons">
+
+            <button class="theme-btn" id="themeBtn">
+                🌙
+            </button>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+        </div>
+
+    </nav>
+
+
+
+    <div class="container">
+
+
+        <!-- =========================
+             PROFILE
+        ========================== -->
+
+        <section class="profile" id="home">
+
+
+
+
+            <img src="pro.png"
+                 alt="Profile Picture">
+
+
+            <h1>
+                KRUBHAVASAN
+            </h1>
+
+
+            <p id="typing"></p>
+
+
+            <div class="hero-buttons">
+
+
+                <a href="#projects"
+                   class="btn primary-btn">
+                   View Projects
+                </a>
+
+
+                <a href="resume.pdf"
+                   download
+                   class="btn secondary-btn">
+
+                    Download Resume
+
+                </a>
+
+
+            </div>
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats">
+
+
+                <div class="stat">
+
+                    <h3>
+                        2+
+                    </h3>
+
+                    <p>
+                        Projects
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>
+                        8+
+                    </h3>
+
+                    <p>
+                        Technical Skills
+                    </p>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <h3>
+                        3+
+                    </h3>
+
+                    <p>
+                        Activities
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="card"
+                 id="about">
+
+
+            <h2>
+                About Me
+            </h2>
+
+
+            <p>
+
+                I am a Computer Science student interested in
+                programming, software development and web technologies.
+                I enjoy learning new technologies, building projects
+                and solving programming problems.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             STUDY DETAILS
+        ========================== -->
+
+        <section class="card">
+
+
+            <h2>
+                Study Details
+            </h2>
+
+
+            <p>
+
+                <strong>
+                    Degree:
+                </strong>
+
+                Bachelor Of Science In Computer Science
+
+            </p>
+
+            <p>
+
+                <strong>
+                    College:
+                </strong>
+
+                Sastra Deemed To Be University
+
+            </p>
+
+            <p>
+
+                <strong>
+                    Year:
+                </strong>
+
+                2023 - 2026
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             TECHNICAL SKILLS
+        ========================== -->
+
+        <section class="card"
+                 id="skills">
+
+
+            <h2>
+                Technical Skills
+            </h2>
+
+
+            <ul>
+
+                <li>
+                    C Programming
+                </li>
+
+                <li>
+                    Python
+                </li>
+
+                <li>
+                    Java Programming
+                </li>
+
+                <li>
+                    HTML5 & CSS3
+                </li>
+
+                <li>
+                    DBMS
+                </li>
+
+                <li>
+                    SQL
+                </li>
+
+                <li>
+                    .NET Fundamental
+                </li>
+
+                <li>
+                    Git & GitHub
+                </li>
+
+            </ul>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             SOFT SKILLS
+        ========================== -->
+
+        <section class="card">
+
+
+            <h2>
+                Soft Skills
+            </h2>
+
+
+            <ul>
+
+                <li>
+                    Time Management
+                </li>
+
+                <li>
+                    Active Listening
+                </li>
+
+                <li>
+                    Adaptability
+                </li>
+
+                <li>
+                    Team Collaboration
+                </li>
+
+                <li>
+                    Quick Learner
+                </li>
+
+            </ul>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section class="card"
+                 id="projects">
+
+
+            <h2>
+                Projects
+            </h2>
+
+
+            <div class="project-grid">
+
+
+                <!-- PROJECT 1 -->
+
+                <div class="project">
+
+
+                    <h3>
+                        Website Creation
+                    </h3>
+
+
+                    <p>
+
+                        Designed and developed a responsive website
+                        for a painting contractor business.
+                        Created user-friendly interfaces and
+                        optimized website performance.
+
+                    </p>
+
+
+                    <div class="tech-tags">
+
+                        <span>
+                            HTML5
+                        </span>
+
+                        <span>
+                            CSS3
+                        </span>
+
+                        <span>
+                            JavaScript
+                        </span>
+
+                        <span>
+                            Responsive Design
+                        </span>
+
+                    </div>
+
+
+                    <a href="https://vickydecors.vercel.app/"
+                       target="_blank">
+
+                        View Website →
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- PROJECT 2 -->
+
+                <div class="project">
+
+
+                    <h3>
+                        Medicine Finder Availability
+                    </h3>
+
+
+                    <p>
+
+                        Developed an application using HTML, CSS
+                        and Python Flask. Performed testing and
+                        debugging to improve application reliability.
+
+                    </p>
+
+
+                    <div class="tech-tags">
+
+                        <span>
+                            HTML
+                        </span>
+
+                        <span>
+                            CSS
+                        </span>
+
+                        <span>
+                            Python
+                        </span>
+
+                        <span>
+                            Flask
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             CERTIFICATIONS
+        ========================== -->
+
+        <section class="card">
+
+
+            <h2>
+                Certifications & Activities
+            </h2>
+
+
+            <ul>
+
+
+                <li>
+
+                    <b>
+                        Workshop on Full Stack Development
+                    </b>
+
+                    – Successfully completed a Full Stack Web
+                    Application Development Workshop.
+
+                </li>
+
+
+                <li>
+
+                    <b>
+                        Team Emulsion
+                    </b>
+
+                    – Worked as a photographer and handled
+                    media coverage for campus events.
+
+                </li>
+
+
+                <li>
+
+                    <b>
+                        S-Foss Association
+                    </b>
+
+                    – Served as Media Team Head and managed
+                    team members for media coverage.
+
+                </li>
+
+
+            </ul>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             CONTACT
+        ========================== -->
+
+        <section class="card"
+                 id="contact">
+
+
+            <h2>
+                Contact Me
+            </h2>
+
+
+            <div class="contact-container">
+
+
+                <!-- LINKEDIN -->
+
+                <div class="contact-item">
+
+
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                        alt="LinkedIn">
+
+
+                    <a
+                        href="https://www.linkedin.com/in/krubhavasan1506/"
+                        target="_blank">
+
+                        LinkedIn
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- WHATSAPP -->
+
+                <div class="contact-item">
+
+
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+                        alt="WhatsApp">
+
+
+                    <a
+                        href="https://wa.me/918667661827"
+                        target="_blank">
+
+                        WhatsApp
+
+                    </a>
+
+
+                </div>
+
+
+
+            
+<!-- PHONE -->
+
+<div class="contact-item">
+
+    <img
+        src="phone.jpg.png"
+        alt="Phone">
+
+    <a href="tel:+918667661827">
+        Contact
+    </a>
+
+    <button
+        class="copy-btn"
+        id="copyPhone">
+        Copy Number
+    </button>
+
+</div>
+
+
+
+
+
+                <!-- GMAIL -->
+
+                <div class="contact-item">
+
+
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
+                        alt="Gmail">
+
+
+                    <a
+                        href="mailto:yourmail@gmail.com">
+
+                        Gmail
+
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- RESUME -->
+
+                <div class="contact-item">
+
+
+                    <img
+                        src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
+                        alt="Resume">
+
+
+                    <a
+                        href="resume.pdf"
+                        download>
+
+                        Resume
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+
+        © 2026
+
+        <span>
+            Krubhavasan
+        </span>.
+
+        All Rights Reserved.
+
+
+        <div class="footer-time"
+             id="liveTime">
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =========================
+         SCROLL TOP
+    ========================== -->
+
+    <button id="topBtn">
+
+        ↑
+
+    </button>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* =========================
+           TYPING ANIMATION
+        ========================== */
+
+        const typingText =
+            document.getElementById("typing");
+
+
+        const texts = [
+
+            "Computer Science Student",
+
+            "Python Programmer",
+
+            "Java Programmer",
+
+            "Web Developer",
+
+            "Problem Solver"
+
+        ];
+
+
+        let textIndex = 0;
+
+        let charIndex = 0;
+
+        let deleting = false;
+
+
+        function typeEffect() {
+
+
+            const currentText =
+                texts[textIndex];
+
+
+            if (!deleting) {
+
+
+                typingText.textContent =
+                    currentText.substring(
+                        0,
+                        charIndex + 1
+                    );
+
+
+                charIndex++;
+
+
+                if (charIndex === currentText.length) {
+
+                    deleting = true;
+
+                    setTimeout(
+                        typeEffect,
+                        1500
+                    );
+
+                    return;
+
+                }
+
+
+            } else {
+
+
+                typingText.textContent =
+                    currentText.substring(
+                        0,
+                        charIndex - 1
+                    );
+
+
+                charIndex--;
+
+
+                if (charIndex === 0) {
+
+
+                    deleting = false;
+
+                    textIndex++;
+
+
+                    if (textIndex === texts.length) {
+
+                        textIndex = 0;
+
+                    }
+
+                }
+
+            }
+
+
+            setTimeout(
+
+                typeEffect,
+
+                deleting ? 50 : 90
+
+            );
+
+        }
+
+
+        typeEffect();
+
+
+
+        /* =========================
+           MOBILE MENU
+        ========================== */
+
+        const menuBtn =
+            document.getElementById("menuBtn");
+
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+
+        menuBtn.addEventListener(
+            "click",
+            function () {
+
+
+                navLinks.classList.toggle(
+                    "active"
+                );
+
+
+                if (
+                    navLinks.classList.contains(
+                        "active"
+                    )
+                ) {
+
+                    menuBtn.textContent = "✕";
+
+                } else {
+
+                    menuBtn.textContent = "☰";
+
+                }
+
+            }
+        );
+
+
+        /* CLOSE MOBILE MENU */
+
+        document
+            .querySelectorAll(".nav-links a")
+            .forEach(function (link) {
+
+
+                link.addEventListener(
+                    "click",
+                    function () {
+
+
+                        navLinks.classList.remove(
+                            "active"
+                        );
+
+
+                        menuBtn.textContent =
+                            "☰";
+
+
+                    }
+                );
+
+
+            });
+
+
+
+        /* =========================
+           DARK / LIGHT MODE
+        ========================== */
+
+        const themeBtn =
+            document.getElementById("themeBtn");
+
+
+        themeBtn.addEventListener(
+            "click",
+            function () {
+
+
+                document.body.classList.toggle(
+                    "light"
+                );
+
+
+                if (
+                    document.body.classList.contains(
+                        "light"
+                    )
+                ) {
+
+
+                    themeBtn.textContent =
+                        "☀️";
+
+
+                    localStorage.setItem(
+                        "theme",
+                        "light"
+                    );
+
+
+                } else {
+
+
+                    themeBtn.textContent =
+                        "🌙";
+
+
+                    localStorage.setItem(
+                        "theme",
+                        "dark"
+                    );
+
+
+                }
+
+
+            }
+        );
+
+
+        /* REMEMBER THEME */
+
+        if (
+            localStorage.getItem("theme")
+            === "light"
+        ) {
+
+
+            document.body.classList.add(
+                "light"
+            );
+
+
+            themeBtn.textContent =
+                "☀️";
+
+
+        }
+
+
+
+        /* =========================
+           SCROLL TO TOP
+        ========================== */
+
+        const topBtn =
+            document.getElementById("topBtn");
+
+
+        window.addEventListener(
+            "scroll",
+            function () {
+
+
+                if (
+                    window.scrollY > 400
+                ) {
+
+                    topBtn.style.display =
+                        "block";
+
+                } else {
+
+                    topBtn.style.display =
+                        "none";
+
+                }
+
+
+            }
+        );
+
+
+        topBtn.addEventListener(
+            "click",
+            function () {
+
+
+                window.scrollTo({
+
+                    top: 0,
+
+                    behavior: "smooth"
+
+                });
+
+
+            }
+        );
+
+
+
+        /* =========================
+           COPY PHONE NUMBER
+        ========================== */
+
+        const copyPhone =
+            document.getElementById(
+                "copyPhone"
+            );
+
+
+        if (copyPhone) {
+
+
+            copyPhone.addEventListener(
+                "click",
+                function () {
+
+
+                    navigator.clipboard.writeText(
+                        "+918667661827"
+                    );
+
+
+                    copyPhone.textContent =
+                        "Copied!";
+
+
+                    setTimeout(
+                        function () {
+
+
+                            copyPhone.textContent =
+                                "Copy Number";
+
+
+                        },
+                        1500
+                    );
+
+
+                }
+            );
+
+
+        }
+
+
+
+        /* =========================
+           LIVE DATE & TIME
+        ========================== */
+
+        function updateTime() {
+
+
+            const liveTime =
+                document.getElementById(
+                    "liveTime"
+                );
+
+
+            const now =
+                new Date();
+
+
+            liveTime.textContent =
+                "Local time: " +
+                now.toLocaleString();
+
+
+        }
+
+
+        updateTime();
+
+
+        setInterval(
+            updateTime,
+            1000
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>
+```
