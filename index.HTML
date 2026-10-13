@@ -1,1890 +1,384 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Krubhavasan | Portfolio</title>
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================== */
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krubhavasan M | Portfolio</title>
+<meta name="description" content="Portfolio of Krubhavasan M, B.Sc. Computer Science student .">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --bg: #050509;
-            --card: rgba(10, 10, 20, 0.92);
-            --text: #f0f6fc;
-            --muted: #8b949e;
-            --green: #2ea043;
-            --border: #30363d;
-            --shadow: rgba(46, 160, 67, 0.25);
-        }
-
-        body.light {
-            --bg: #f4f6f8;
-            --card: #ffffff;
-            --text: #111827;
-            --muted: #555f6d;
-            --border: #d0d7de;
-        }
-
-        body {
-            background:
-                linear-gradient(rgba(0, 0, 0, 0.75),
-                rgba(0, 0, 0, 0.75)),
-                url("bg.jpg.jpg");
-
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-
-            color: var(--text);
-            min-height: 100vh;
-
-            animation: fadeIn 1s ease;
-        }
-
-        body.light {
-            background:
-                linear-gradient(rgba(255, 255, 255, 0.88),
-                rgba(255, 255, 255, 0.88)),
-                url("bg.jpg.jpg");
-
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================== */
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            width: 100%;
-            padding: 15px 7%;
-
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            background: rgba(5, 5, 9, 0.88);
-
-            backdrop-filter: blur(12px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        body.light nav {
-            background: rgba(255, 255, 255, 0.88);
-        }
-
-        .logo {
-            color: var(--green);
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--green);
-        }
-
-        .nav-buttons {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .theme-btn,
-        .menu-btn {
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text);
-
-            cursor: pointer;
-
-            border-radius: 10px;
-
-            padding: 8px 11px;
-
-            font-size: 18px;
-        }
-
-        .theme-btn:hover,
-        .menu-btn:hover {
-            border-color: var(--green);
-            color: var(--green);
-        }
-
-        .menu-btn {
-            display: none;
-        }
-
-
-        /* =========================
-           CONTAINER
-        ========================== */
-
-        .container {
-            width: min(1000px, 92%);
-            margin: auto;
-            padding: 35px 0;
-        }
-
-
-        /* =========================
-           PROFILE
-        ========================== */
-
-        .profile {
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 25px;
-
-            padding: 45px 25px;
-
-            text-align: center;
-
-            margin-bottom: 25px;
-
-            transition: 0.3s;
-
-            animation: slideDown 1s ease;
-        }
-
-        .profile:hover {
-            transform: translateY(-6px);
-
-            border-color: var(--green);
-
-            box-shadow: 0 15px 40px var(--shadow);
-        }
-
-
-        /* =========================
-           STATUS BADGE
-        ========================== */
-
-        .status {
-            display: inline-block;
-
-            padding: 7px 14px;
-
-            margin-bottom: 20px;
-
-            border: 1px solid var(--green);
-
-            border-radius: 20px;
-
-            color: var(--green);
-
-            font-size: 14px;
-
-            font-weight: bold;
-        }
-
-        .status span {
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-
-            50% {
-                opacity: 0.3;
-            }
-
-        }
-
-
-        /* =========================
-           PROFILE IMAGE
-        ========================== */
-
-        .profile img {
-            width: 170px;
-            height: 170px;
-
-            border-radius: 50%;
-
-            object-fit: cover;
-
-            border: 4px solid var(--green);
-
-            margin-bottom: 18px;
-
-            transition: 0.4s;
-        }
-
-        .profile img:hover {
-            transform: scale(1.08) rotate(3deg);
-
-            box-shadow: 0 0 30px var(--shadow);
-        }
-
-     .profile h1 {
-    font-family: "Inter", sans-serif;
-    font-weight: 800;
-    letter-spacing: 1px;
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000; --ink:#eef0f6; --mute:#a4a9bd; --cyan:#5ad1e6; --amber:#ffb84d;
+  --panel:rgba(12,12,16,.74); --line:rgba(150,160,200,.2);
+  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --body:'Manrope','Segoe UI',system-ui,sans-serif;
 }
-
-        /* =========================
-           TYPING ANIMATION
-        ========================== */
-
-        #typing {
-            min-height: 25px;
-
-            color: var(--muted) !important;
-
-            font-size: 17px;
-
-            letter-spacing: 1px;
-        }
-
-
-        /* =========================
-           HERO BUTTONS
-        ========================== */
-
-        .hero-buttons {
-            margin-top: 25px;
-
-            display: flex;
-
-            justify-content: center;
-
-            gap: 15px;
-
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-
-            padding: 12px 22px;
-
-            border-radius: 10px;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .primary-btn {
-            background: var(--green);
-            color: white;
-        }
-
-        .secondary-btn {
-            border: 1px solid var(--green);
-            color: var(--green);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-
-            box-shadow: 0 8px 20px var(--shadow);
-        }
-
-
-        /* =========================
-           STATISTICS
-        ========================== */
-
-        .stats {
-            display: flex;
-
-            justify-content: center;
-
-            gap: 55px;
-
-            margin-top: 30px;
-
-            padding-top: 25px;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat h3 {
-            color: var(--green);
-
-            font-size: 28px;
-        }
-
-        .stat p {
-            color: var(--muted);
-
-            margin-top: 5px;
-
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           CARDS
-        ========================== */
-
-        .card {
-            background: var(--card);
-
-            border: 1px solid var(--border);
-
-            border-radius: 20px;
-
-            padding: 28px;
-
-            margin-bottom: 25px;
-
-            transition: 0.3s;
-
-            animation: slideUp 1s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-
-            border-color: var(--green);
-
-            box-shadow: 0 15px 35px var(--shadow);
-        }
-
-        .card h2 {
-            color: var(--green);
-
-            margin-bottom: 20px;
-
-            display: inline-block;
-
-            border-bottom: 2px solid var(--green);
-
-            padding-bottom: 6px;
-        }
-
-        .card p {
-            line-height: 1.7;
-
-            color: var(--text);
-        }
-
-
-        /* =========================
-           LIST
-        ========================== */
-
-        ul {
-            margin-left: 22px;
-        }
-
-        li {
-            margin: 11px 0;
-
-            line-height: 1.5;
-        }
-
-
-        /* =========================
-           PROJECTS
-        ========================== */
-
-        .project-grid {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 20px;
-        }
-
-        .project {
-            padding: 22px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 15px;
-
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-7px);
-
-            border-color: var(--green);
-
-            box-shadow: 0 10px 25px var(--shadow);
-        }
-
-        .project h3 {
-            color: var(--green);
-
-            margin-bottom: 10px;
-        }
-
-        .project p {
-            color: var(--muted);
-
-            line-height: 1.6;
-        }
-
-        .project a {
-            display: inline-block;
-
-            margin-top: 15px;
-
-            color: var(--green);
-
-            text-decoration: none;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           TECHNOLOGY TAGS
-        ========================== */
-
-        .tech-tags {
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 8px;
-
-            margin-top: 16px;
-        }
-
-        .tech-tags span {
-            padding: 6px 10px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 20px;
-
-            color: var(--green);
-
-            background: rgba(46, 160, 67, 0.08);
-
-            font-size: 12px;
-
-            font-weight: bold;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================== */
-
-        .contact-container {
-            display: flex;
-
-            justify-content: space-around;
-
-            align-items: center;
-
-            gap: 25px;
-
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            gap: 10px;
-
-            min-width: 100px;
-
-            transition: 0.3s;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-8px);
-        }
-
-        .contact-item img {
-            width: 45px;
-
-            height: 45px;
-
-            object-fit: contain;
-
-            transition: 0.3s;
-        }
-
-        .contact-item:hover img {
-            transform: scale(1.15);
-        }
-
-        .contact-item a {
-            color: var(--text);
-
-            text-decoration: none;
-
-            font-weight: bold;
-        }
-
-        .contact-item a:hover {
-            color: var(--green);
-        }
-
-
-        /* =========================
-           COPY PHONE BUTTON
-        ========================== */
-
-        .copy-btn {
-            margin-top: 5px;
-
-            padding: 6px 10px;
-
-            border: 1px solid var(--green);
-
-            border-radius: 8px;
-
-            background: transparent;
-
-            color: var(--green);
-
-            cursor: pointer;
-
-            font-size: 11px;
-
-            transition: 0.3s;
-        }
-
-        .copy-btn:hover {
-            background: var(--green);
-
-            color: white;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            text-align: center;
-
-            padding: 25px;
-
-            color: var(--muted);
-        }
-
-        footer span {
-            color: var(--green);
-        }
-
-        .footer-time {
-            margin-top: 8px;
-
-            font-size: 13px;
-
-            color: var(--muted);
-        }
-
-
-        /* =========================
-           SCROLL TOP
-        ========================== */
-
-        #topBtn {
-            position: fixed;
-
-            right: 20px;
-
-            bottom: 20px;
-
-            width: 45px;
-
-            height: 45px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background: var(--green);
-
-            color: white;
-
-            font-size: 20px;
-
-            cursor: pointer;
-
-            display: none;
-
-            z-index: 999;
-        }
-
-        #topBtn:hover {
-            transform: translateY(-4px);
-        }
-
-
-        /* =========================
-           ANIMATIONS
-        ========================== */
-
-        @keyframes fadeIn {
-
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-        }
-
-        @keyframes slideDown {
-
-            from {
-                opacity: 0;
-
-                transform: translateY(-40px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform: translateY(0);
-            }
-
-        }
-
-        @keyframes slideUp {
-
-            from {
-                opacity: 0;
-
-                transform: translateY(40px);
-            }
-
-            to {
-                opacity: 1;
-
-                transform: translateY(0);
-            }
-
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================== */
-
-        @media screen and (max-width: 768px) {
-
-            nav {
-                padding: 14px 5%;
-            }
-
-            .nav-links {
-                position: absolute;
-
-                top: 65px;
-
-                left: 0;
-
-                width: 100%;
-
-                background: var(--card);
-
-                flex-direction: column;
-
-                align-items: center;
-
-                padding: 20px 0;
-
-                display: none;
-
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .profile {
-                padding: 35px 20px;
-            }
-
-            .profile img {
-                width: 135px;
-
-                height: 135px;
-            }
-
-            .profile h1 {
-                font-size: 30px;
-            }
-
-            .card {
-                padding: 20px;
-            }
-
-            .card h2 {
-                font-size: 21px;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                justify-content: space-evenly;
-            }
-
-            .contact-item {
-                min-width: 80px;
-            }
-
-            .stats {
-                gap: 20px;
-            }
-
-            .stat h3 {
-                font-size: 23px;
-            }
-
-            .stat p {
-                font-size: 12px;
-            }
-
-            #typing {
-                font-size: 15px;
-            }
-
-            .tech-tags span {
-                font-size: 11px;
-            }
-
-        }
-
-    </style>
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.05rem;line-height:1.65;overflow-x:hidden}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+
+header{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px clamp(20px,5vw,64px);background:linear-gradient(var(--bg),transparent);z-index:5}
+header .logo{font-family:var(--display);font-weight:800;text-decoration:none;font-size:1.15rem}
+nav{display:flex;gap:clamp(12px,2.5vw,30px)}
+nav a{text-decoration:none;color:var(--mute);font-weight:500;font-size:.95rem;transition:color .2s}
+nav a:hover{color:var(--amber)}
+
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:110px clamp(20px,5vw,64px) 70px}
+.wrap{max-width:1100px;width:100%}
+h1,h2,h3{font-family:var(--display);line-height:1.05;letter-spacing:-.02em}
+h1{font-size:clamp(3rem,9vw,7.2rem);font-weight:800}
+h2{font-size:clamp(2rem,5vw,3.4rem);font-weight:700;margin-bottom:28px}
+h3{font-size:1.35rem;font-weight:700;margin-bottom:8px}
+.lead{max-width:34ch;font-size:clamp(1.15rem,2.2vw,1.5rem);color:var(--mute);margin:24px 0 34px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:8px;font-weight:600;text-decoration:none;border:1.5px solid var(--amber);transition:transform .2s,background .2s,color .2s}
+.btn.fill{background:var(--amber);color:#1a1405}
+.btn:hover{transform:translateY(-3px);background:var(--amber);color:#1a1405}
+
+.panel{background:var(--panel);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:14px;padding:28px}
+.about{max-width:62ch}
+.about p+p{margin-top:16px}
+.chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+.chip{border-radius:10px;padding:22px;text-align:center;font-family:var(--display);font-weight:700;font-size:1.3rem;transform-style:preserve-3d}
+.chip small{display:block;font-family:var(--body);font-weight:400;font-size:.85rem;color:var(--mute);margin-top:4px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+.tilt{transition:transform .15s ease-out,border-color .2s;will-change:transform}
+.tilt:hover{border-color:var(--cyan)}
+.tilt .inner{transform:translateZ(36px)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:.82rem;padding:3px 10px;border-radius:5px;background:rgba(90,209,230,.14);color:var(--cyan)}
+.card p{color:var(--mute)}
+.timeline{border-left:2px solid var(--line);padding-left:26px;display:grid;gap:26px;max-width:62ch}
+.timeline h3{margin-bottom:2px}
+.timeline .when{color:var(--amber);font-size:.9rem;font-weight:600}
+.timeline p{color:var(--mute)}
+.socials{display:flex;flex-wrap:wrap;gap:26px;margin-top:10px}
+.social{--c:#39ff14;display:flex;flex-direction:column;align-items:center;gap:12px;text-decoration:none;font-weight:600;font-size:.95rem;color:var(--c)}
+.social .ico{width:88px;height:88px;display:grid;place-items:center;border-radius:22px;background:#000;border:2px solid var(--c);box-shadow:0 0 16px -2px var(--c),inset 0 0 14px -6px var(--c);transition:transform .25s,box-shadow .25s}
+.social svg{width:40px;height:40px;fill:currentColor;filter:drop-shadow(0 0 5px var(--c)) drop-shadow(0 0 12px var(--c))}
+.social svg.line{fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.social:hover .ico,.social:focus-visible .ico{transform:translateY(-8px) scale(1.07);box-shadow:0 0 30px 2px var(--c),inset 0 0 20px -4px var(--c)}
+.social.linkedin{--c:#1fb6ff}
+.social.whatsapp{--c:#39ff14}
+.social.mail{--c:#ff2bd6}
+footer{padding:30px clamp(20px,5vw,64px);color:var(--mute);font-size:.9rem}
+
+.mode{position:fixed;right:clamp(14px,3vw,32px);bottom:clamp(14px,3vw,28px);z-index:6;font:600 .9rem var(--body);color:#39ff14;background:#000;border:1.5px solid #39ff14;border-radius:10px;padding:10px 16px;cursor:pointer;box-shadow:0 0 14px -2px #39ff14;transition:transform .2s,box-shadow .2s}
+.mode:hover{transform:translateY(-3px);box-shadow:0 0 24px 1px #39ff14}
+.focus{position:fixed;left:0;top:0;width:72px;height:72px;margin:-36px 0 0 -36px;color:var(--amber);pointer-events:none;z-index:4;opacity:0;transition:opacity .3s}
+.focus.on{opacity:.9}
+.focus svg{width:100%;height:100%;display:block;transition:transform .25s}
+.focus.snap svg{transform:scale(.8)}
+@media (pointer:coarse){.focus{display:none}}
+@media (max-width:640px){nav a:nth-child(n+4){display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tilt,.btn{transition:none}}
+</style>
 </head>
-
-
 <body>
-
-
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
-
-    <nav>
-
-        <div class="logo">
-
-        </div>
-
-        <ul class="nav-links" id="navLinks">
-
-            <li>
-                <a href="#home">Home</a>
-            </li>
-
-            <li>
-                <a href="#about">About</a>
-            </li>
-
-            <li>
-                <a href="#skills">Skills</a>
-            </li>
-
-            <li>
-                <a href="#projects">Projects</a>
-            </li>
-
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-
-        </ul>
-
-
-        <div class="nav-buttons">
-
-            <button class="theme-btn" id="themeBtn">
-                🌙
-            </button>
-
-            <button class="menu-btn" id="menuBtn">
-                ☰
-            </button>
-
-        </div>
-
-    </nav>
-
-
-
-    <div class="container">
-
-
-        <!-- =========================
-             PROFILE
-        ========================== -->
-
-        <section class="profile" id="home">
-
-
-
-
-            <img src="pro.png"
-                 alt="Profile Picture">
-
-
-            <h1>
-                KRUBHAVASAN
-            </h1>
-
-
-            <p id="typing"></p>
-
-
-            <div class="hero-buttons">
-
-
-                <a href="#projects"
-                   class="btn primary-btn">
-                   View Projects
-                </a>
-
-
-                <a href="resume.pdf"
-                   download
-                   class="btn secondary-btn">
-
-                    Download Resume
-
-                </a>
-
-
-            </div>
-
-
-            <!-- STATISTICS -->
-
-            <div class="stats">
-
-
-                <div class="stat">
-
-                    <h3>
-                        2+
-                    </h3>
-
-                    <p>
-                        Projects
-                    </p>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <h3>
-                        8+
-                    </h3>
-
-                    <p>
-                        Technical Skills
-                    </p>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <h3>
-                        3+
-                    </h3>
-
-                    <p>
-                        Activities
-                    </p>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
-
-        <section class="card"
-                 id="about">
-
-
-            <h2>
-                About Me
-            </h2>
-
-
-            <p>
-
-                I am a Computer Science student interested in
-                programming, software development and web technologies.
-                I enjoy learning new technologies, building projects
-                and solving programming problems.
-
-            </p>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             STUDY DETAILS
-        ========================== -->
-
-        <section class="card">
-
-
-            <h2>
-                Study Details
-            </h2>
-
-
-            <p>
-
-                <strong>
-                    Degree:
-                </strong>
-
-                Bachelor Of Science In Computer Science
-
-            </p>
-
-            <p>
-
-                <strong>
-                    College:
-                </strong>
-
-                Sastra Deemed To Be University
-
-            </p>
-
-            <p>
-
-                <strong>
-                    Year:
-                </strong>
-
-                2023 - 2026
-
-            </p>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             TECHNICAL SKILLS
-        ========================== -->
-
-        <section class="card"
-                 id="skills">
-
-
-            <h2>
-                Technical Skills
-            </h2>
-
-
-            <ul>
-
-                <li>
-                    C Programming
-                </li>
-
-                <li>
-                    Python
-                </li>
-
-                <li>
-                    Java Programming
-                </li>
-
-                <li>
-                    HTML5 & CSS3
-                </li>
-
-                <li>
-                    DBMS
-                </li>
-
-                <li>
-                    SQL
-                </li>
-
-                <li>
-                    .NET Fundamental
-                </li>
-
-                <li>
-                    Git & GitHub
-                </li>
-
-            </ul>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             SOFT SKILLS
-        ========================== -->
-
-        <section class="card">
-
-
-            <h2>
-                Soft Skills
-            </h2>
-
-
-            <ul>
-
-                <li>
-                    Time Management
-                </li>
-
-                <li>
-                    Active Listening
-                </li>
-
-                <li>
-                    Adaptability
-                </li>
-
-                <li>
-                    Team Collaboration
-                </li>
-
-                <li>
-                    Quick Learner
-                </li>
-
-            </ul>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             PROJECTS
-        ========================== -->
-
-        <section class="card"
-                 id="projects">
-
-
-            <h2>
-                Projects
-            </h2>
-
-
-            <div class="project-grid">
-
-
-                <!-- PROJECT 1 -->
-
-                <div class="project">
-
-
-                    <h3>
-                        Website Creation
-                    </h3>
-
-
-                    <p>
-
-                        Designed and developed a responsive website
-                        for a painting contractor business.
-                        Created user-friendly interfaces and
-                        optimized website performance.
-
-                    </p>
-
-
-                    <div class="tech-tags">
-
-                        <span>
-                            HTML5
-                        </span>
-
-                        <span>
-                            CSS3
-                        </span>
-
-                        <span>
-                            JavaScript
-                        </span>
-
-                        <span>
-                            Responsive Design
-                        </span>
-
-                    </div>
-
-
-                    <a href="https://vickydecors.vercel.app/"
-                       target="_blank">
-
-                        View Website →
-
-                    </a>
-
-
-                </div>
-
-
-
-                <!-- PROJECT 2 -->
-
-                <div class="project">
-
-
-                    <h3>
-                        Medicine Finder Availability
-                    </h3>
-
-
-                    <p>
-
-                        Developed an application using HTML, CSS
-                        and Python Flask. Performed testing and
-                        debugging to improve application reliability.
-
-                    </p>
-
-
-                    <div class="tech-tags">
-
-                        <span>
-                            HTML
-                        </span>
-
-                        <span>
-                            CSS
-                        </span>
-
-                        <span>
-                            Python
-                        </span>
-
-                        <span>
-                            Flask
-                        </span>
-
-                    </div>
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             CERTIFICATIONS
-        ========================== -->
-
-        <section class="card">
-
-
-            <h2>
-                Certifications & Activities
-            </h2>
-
-
-            <ul>
-
-
-                <li>
-
-                    <b>
-                        Workshop on Full Stack Development
-                    </b>
-
-                    – Successfully completed a Full Stack Web
-                    Application Development Workshop.
-
-                </li>
-
-
-                <li>
-
-                    <b>
-                        Team Emulsion
-                    </b>
-
-                    – Worked as a photographer and handled
-                    media coverage for campus events.
-
-                </li>
-
-
-                <li>
-
-                    <b>
-                        S-Foss Association
-                    </b>
-
-                    – Served as Media Team Head and managed
-                    team members for media coverage.
-
-                </li>
-
-
-            </ul>
-
-
-        </section>
-
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section class="card"
-                 id="contact">
-
-
-            <h2>
-                Contact Me
-            </h2>
-
-
-            <div class="contact-container">
-
-
-                <!-- LINKEDIN -->
-
-                <div class="contact-item">
-
-
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-                        alt="LinkedIn">
-
-
-                    <a
-                        href="https://www.linkedin.com/in/krubhavasan1506/"
-                        target="_blank">
-
-                        LinkedIn
-
-                    </a>
-
-
-                </div>
-
-
-
-                <!-- WHATSAPP -->
-
-                <div class="contact-item">
-
-
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
-                        alt="WhatsApp">
-
-
-                    <a
-                        href="https://wa.me/918667661827"
-                        target="_blank">
-
-                        WhatsApp
-
-                    </a>
-
-
-                </div>
-
-
-
-            
-<!-- PHONE -->
-
-<div class="contact-item">
-
-    <img
-        src="phone.jpg.png"
-        alt="Phone">
-
-    <a href="tel:+918667661827">
-        Contact
-    </a>
-
-    <button
-        class="copy-btn"
-        id="copyPhone">
-        Copy Number
-    </button>
-
-</div>
-
-
-
-
-
-                <!-- GMAIL -->
-
-                <div class="contact-item">
-
-
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/732/732200.png"
-                        alt="Gmail">
-
-
-                    <a
-                        href="mailto:yourmail@gmail.com">
-
-                        Gmail
-
-                    </a>
-
-
-                </div>
-
-
-
-                <!-- RESUME -->
-
-                <div class="contact-item">
-
-
-                    <img
-                        src="https://cdn-icons-png.flaticon.com/512/337/337946.png"
-                        alt="Resume">
-
-
-                    <a
-                        href="resume.pdf"
-                        download>
-
-                        Resume
-
-                    </a>
-
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="focus" id="focus" aria-hidden="true"><svg viewBox="0 0 70 70" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 22V2h20M48 2h20v20M68 48v20H48M22 68H2V48"/></svg></div>
+
+<header>
+  <a class="logo" href="#top">Krubhavasan M</a>
+  <nav aria-label="Main">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journey">Journey</a><a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section id="hero">
+    <div class="wrap">
+      <h1>Krubhavasan M</h1>
+      <p class="lead"> Software Developer | Web Developer | Logo Designer | Social Media Management</p>
+      <div class="btns">
+        <a class="btn fill" href="#projects">See my projects</a>
+        <a class="btn" href="#contact">Contact me</a>
+      </div>
     </div>
-
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer>
-
-
-        © 2026
-
-        <span>
-            Krubhavasan
-        </span>.
-
-        All Rights Reserved.
-
-
-        <div class="footer-time"
-             id="liveTime">
-
-        </div>
-
-
-    </footer>
-
-
-
-    <!-- =========================
-         SCROLL TOP
-    ========================== -->
-
-    <button id="topBtn">
-
-        ↑
-
-    </button>
-
-
-
-    <!-- =========================
-         JAVASCRIPT
-    ========================== -->
-
-    <script>
-
-
-        /* =========================
-           TYPING ANIMATION
-        ========================== */
-
-        const typingText =
-            document.getElementById("typing");
-
-
-        const texts = [
-
-            "Computer Science Student",
-
-            "Python Programmer",
-
-            "Java Programmer",
-
-            "Web Developer",
-
-            "Problem Solver"
-
-        ];
-
-
-        let textIndex = 0;
-
-        let charIndex = 0;
-
-        let deleting = false;
-
-
-        function typeEffect() {
-
-
-            const currentText =
-                texts[textIndex];
-
-
-            if (!deleting) {
-
-
-                typingText.textContent =
-                    currentText.substring(
-                        0,
-                        charIndex + 1
-                    );
-
-
-                charIndex++;
-
-
-                if (charIndex === currentText.length) {
-
-                    deleting = true;
-
-                    setTimeout(
-                        typeEffect,
-                        1500
-                    );
-
-                    return;
-
-                }
-
-
-            } else {
-
-
-                typingText.textContent =
-                    currentText.substring(
-                        0,
-                        charIndex - 1
-                    );
-
-
-                charIndex--;
-
-
-                if (charIndex === 0) {
-
-
-                    deleting = false;
-
-                    textIndex++;
-
-
-                    if (textIndex === texts.length) {
-
-                        textIndex = 0;
-
-                    }
-
-                }
-
-            }
-
-
-            setTimeout(
-
-                typeEffect,
-
-                deleting ? 50 : 90
-
-            );
-
-        }
-
-
-        typeEffect();
-
-
-
-        /* =========================
-           MOBILE MENU
-        ========================== */
-
-        const menuBtn =
-            document.getElementById("menuBtn");
-
-
-        const navLinks =
-            document.getElementById("navLinks");
-
-
-        menuBtn.addEventListener(
-            "click",
-            function () {
-
-
-                navLinks.classList.toggle(
-                    "active"
-                );
-
-
-                if (
-                    navLinks.classList.contains(
-                        "active"
-                    )
-                ) {
-
-                    menuBtn.textContent = "✕";
-
-                } else {
-
-                    menuBtn.textContent = "☰";
-
-                }
-
-            }
-        );
-
-
-        /* CLOSE MOBILE MENU */
-
-        document
-            .querySelectorAll(".nav-links a")
-            .forEach(function (link) {
-
-
-                link.addEventListener(
-                    "click",
-                    function () {
-
-
-                        navLinks.classList.remove(
-                            "active"
-                        );
-
-
-                        menuBtn.textContent =
-                            "☰";
-
-
-                    }
-                );
-
-
-            });
-
-
-
-        /* =========================
-           DARK / LIGHT MODE
-        ========================== */
-
-        const themeBtn =
-            document.getElementById("themeBtn");
-
-
-        themeBtn.addEventListener(
-            "click",
-            function () {
-
-
-                document.body.classList.toggle(
-                    "light"
-                );
-
-
-                if (
-                    document.body.classList.contains(
-                        "light"
-                    )
-                ) {
-
-
-                    themeBtn.textContent =
-                        "☀️";
-
-
-                    localStorage.setItem(
-                        "theme",
-                        "light"
-                    );
-
-
-                } else {
-
-
-                    themeBtn.textContent =
-                        "🌙";
-
-
-                    localStorage.setItem(
-                        "theme",
-                        "dark"
-                    );
-
-
-                }
-
-
-            }
-        );
-
-
-        /* REMEMBER THEME */
-
-        if (
-            localStorage.getItem("theme")
-            === "light"
-        ) {
-
-
-            document.body.classList.add(
-                "light"
-            );
-
-
-            themeBtn.textContent =
-                "☀️";
-
-
-        }
-
-
-
-        /* =========================
-           SCROLL TO TOP
-        ========================== */
-
-        const topBtn =
-            document.getElementById("topBtn");
-
-
-        window.addEventListener(
-            "scroll",
-            function () {
-
-
-                if (
-                    window.scrollY > 400
-                ) {
-
-                    topBtn.style.display =
-                        "block";
-
-                } else {
-
-                    topBtn.style.display =
-                        "none";
-
-                }
-
-
-            }
-        );
-
-
-        topBtn.addEventListener(
-            "click",
-            function () {
-
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-
-            }
-        );
-
-
-
-        /* =========================
-           COPY PHONE NUMBER
-        ========================== */
-
-        const copyPhone =
-            document.getElementById(
-                "copyPhone"
-            );
-
-
-        if (copyPhone) {
-
-
-            copyPhone.addEventListener(
-                "click",
-                function () {
-
-
-                    navigator.clipboard.writeText(
-                        "+918667661827"
-                    );
-
-
-                    copyPhone.textContent =
-                        "Copied!";
-
-
-                    setTimeout(
-                        function () {
-
-
-                            copyPhone.textContent =
-                                "Copy Number";
-
-
-                        },
-                        1500
-                    );
-
-
-                }
-            );
-
-
-        }
-
-
-
-        /* =========================
-           LIVE DATE & TIME
-        ========================== */
-
-        function updateTime() {
-
-
-            const liveTime =
-                document.getElementById(
-                    "liveTime"
-                );
-
-
-            const now =
-                new Date();
-
-
-            liveTime.textContent =
-                "Local time: " +
-                now.toLocaleString();
-
-
-        }
-
-
-        updateTime();
-
-
-        setInterval(
-            updateTime,
-            1000
-        );
-
-
-    </script>
-
-
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <h2>About me</h2>
+      <div class="panel about">
+        <p>I help people put their businesses on the internet🌐. I build clear, mobile-friendly websites and web apps, from the layout to the database behind it, so customers can find the business and contact it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2>Skills</h2>
+      <div class="chips">
+        <div class="panel chip tilt">Java<small>Programming</small></div>
+        <div class="panel chip tilt">SQL<small>Databases</small></div>
+        <div class="panel chip tilt">HTML<small>Web structure</small></div>
+        <div class="panel chip tilt">CSS<small>Web styling</small></div>
+        <div class="panel chip tilt">Windows<small>Operating system</small></div>
+         <div class="panel chip tilt">Python<small>Programming</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="panel card tilt">
+          <div class="inner">
+            <h3>Medicine Finder And It's Availability</h3>
+            <p>A web app for looking up medicines. A Java back end reads from an SQL database, and the pages are built in HTML and CSS.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Java</span><span>Python Flask</span></div>
+          </div>
+        </article>
+        <article class="panel card tilt">
+          <div class="inner">
+            <h3>Painting Contract Website</h3>
+            <p>A responsive website for a painting contractor, showing services and work so customers can get in touch.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>Java Script</span></div>
+          </div>
+        </article>
+        <article class="panel card tilt">
+          <div class="inner">
+            <h3>New Leo Tailors</h3>
+            <p>Hands-on project covering how the front end, back end and database fit together in one application.</p>
+            <div class="tags"><span>Software</span><span>Android</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="wrap">
+      <h2>Journey</h2>
+      <div class="timeline">
+        <div><div class="when">2023 to 2026</div><h3>B.Sc. Computer Science</h3><p>Sastra Deemed University, Kumbakonam</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2>Let's build a Site </h2>
+      <p class="lead" style="margin-top:0">Reach Out Me To Make Your Business Professional.</p>
+      <!-- TODO: replace the three links below with your real details.
+           WhatsApp format: https://wa.me/918667661827 (country code + number, no + or spaces) -->
+      <div class="socials">
+        <a class="social linkedin" href="https://www.linkedin.com/in/Krubhavasan152006" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span>
+          LinkedIn
+        </a>
+        <a class="social whatsapp" href="https://wa.me/918667661827" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
+          WhatsApp
+        </a>
+        <a class="social mail" href="mailto:krubhavasan15@gmail.com" aria-label="Email">
+          <span class="ico"><svg class="line" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 7.5l9 6.2 9-6.2"/></svg></span>
+          Email
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+<button class="mode" id="mode" type="button" aria-label="Change background animation">Change animation</button>
+<footer>© <span id="yr"></span> Krubhavasan M</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canvas = document.getElementById('scene');
+
+  /* ---------- 3D scene ---------- */
+  if (window.THREE) {
+    const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, 1, .1, 100);
+    camera.position.z = 8;
+
+    const group = new THREE.Group(); scene.add(group);
+    const NEON = ['#39ff14', '#1fb6ff', '#ff2bd6', '#ffb84d'];
+
+    /* network graph: nodes joined by nearby links */
+    const NN = 70, nodes = [];
+    for (let i = 0; i < NN; i++) {
+      const r = 2.2 + Math.random() * 2.2, a = Math.random() * 6.283, b = Math.acos(2 * Math.random() - 1);
+      nodes.push(new THREE.Vector3(r * Math.sin(b) * Math.cos(a), r * Math.sin(b) * Math.sin(a), r * Math.cos(b)));
+    }
+    const lp = [];
+    for (let i = 0; i < NN; i++) for (let j = i + 1; j < NN; j++)
+      if (nodes[i].distanceTo(nodes[j]) < 1.9) lp.push(nodes[i].x, nodes[i].y, nodes[i].z, nodes[j].x, nodes[j].y, nodes[j].z);
+    const lg = new THREE.BufferGeometry(); lg.setAttribute('position', new THREE.Float32BufferAttribute(lp, 3));
+    const links = new THREE.LineSegments(lg, new THREE.LineBasicMaterial({color:0x1fb6ff, transparent:true, opacity:.35}));
+    const dots = new THREE.Points(new THREE.BufferGeometry().setFromPoints(nodes), new THREE.PointsMaterial({color:0x39ff14, size:.1, transparent:true, opacity:.95}));
+
+    /* processor chip in the middle */
+    const box = (s, c, o) => new THREE.Mesh(new THREE.BoxGeometry(s, s, s), new THREE.MeshBasicMaterial({color:c, wireframe:true, transparent:true, opacity:o}));
+    const core = box(1.3, 0xffb84d, .9), core2 = box(.65, 0x39ff14, .9);
+    group.add(links, dots, core, core2);
+
+    /* floating technology logos (real logos with neon glow) */
+    const ICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/';
+    const techs = [
+      ['Java', 'java/java-original.svg', '#ff9d1e'], ['SQL', 'mysql/mysql-original.svg', '#19c3ff'],
+     ['HTML', 'html5/html5-original.svg', '#ff7a2e'],
+      ['CSS', 'css3/css3-original.svg', '#2d9bff'],
+      ['Windows', 'windows8/windows8-original.svg', '#00b7ff']
+    ];
+    function paint(c, color, img, name){
+      const x = c.getContext('2d'); x.clearRect(0, 0, 256, 256);
+      x.shadowColor = color; x.shadowBlur = 34;
+      if (img) { for (let k = 0; k < 3; k++) x.drawImage(img, 36, 36, 184, 184); }
+      else if (name) { x.font = '700 44px Consolas, "Courier New", monospace'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = color; x.fillText(name, 128, 128); }
+    }
+    function logo(t){
+      const name = t[0], color = t[2];
+      const c = document.createElement('canvas'); c.width = c.height = 256;
+      const tex = new THREE.CanvasTexture(c);
+      const im = new Image(); im.crossOrigin = 'anonymous';
+      im.onload = () => { paint(c, color, im); tex.needsUpdate = true; };
+      im.onerror = () => { paint(c, color, null, name); tex.needsUpdate = true; };
+      im.src = ICON + t[1];
+      const sp = new THREE.Sprite(new THREE.SpriteMaterial({map:tex, transparent:true, depthWrite:false, opacity:1}));
+      sp.scale.set(1.5, 1.5, 1); return sp;
+    }
+    const glyphs = [];
+    techs.forEach((t, i) => {
+      const g = logo(t), a = i / techs.length * 6.283, r = 4.8 + Math.random() * 1.2;
+      g.position.set(Math.cos(a) * r, (Math.random() - .5) * 4, Math.sin(a) * r);
+      g.userData = {y:g.position.y, p:Math.random() * 6.283};
+      group.add(g); glyphs.push(g);
+    });
+
+    /* animation 2: binary tunnel with logos flying past */
+    const tunnel = new THREE.Group(); tunnel.visible = false; scene.add(tunnel);
+    function digitTex(ch, color){
+      const c = document.createElement('canvas'); c.width = c.height = 64;
+      const x = c.getContext('2d'); x.font = '700 52px Consolas, "Courier New", monospace';
+      x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillStyle = color; x.shadowColor = color; x.shadowBlur = 10;
+      x.fillText(ch, 32, 34); return new THREE.CanvasTexture(c);
+    }
+    const TN = 260;
+    function digits(ch, color){
+      const arr = new Float32Array(TN * 3);
+      for (let i = 0; i < TN; i++) { const a = Math.random() * 6.283, r = 4 + Math.random() * 5; arr[i*3] = Math.cos(a) * r; arr[i*3+1] = Math.sin(a) * r; arr[i*3+2] = -45 + Math.random() * 53; }
+      const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(arr, 3));
+      const p = new THREE.Points(g, new THREE.PointsMaterial({map:digitTex(ch, color), size:.6, transparent:true, depthWrite:false, opacity:.75}));
+      p.userData.arr = arr; tunnel.add(p); return p;
+    }
+    const layers = [digits('0', '#39ff14'), digits('1', '#1fb6ff')];
+    const flyers = techs.map((t, i) => {
+      const s = logo(t); s.scale.set(1.4, 1.4, 1);
+      s.userData = {a:i / techs.length * 6.283, z:-5 - i * 6}; tunnel.add(s); return s;
+    });
+
+    /* animation 3: tech logos orbiting a chip */
+    const orbit = new THREE.Group(); orbit.visible = false; scene.add(orbit);
+    const oc1 = box(1.4, 0xffb84d, .9), oc2 = box(.7, 0x39ff14, .9); orbit.add(oc1, oc2);
+    const rings = [], tilts = [[0, 0], [1.1, .4], [-.9, .9]], rcol = [0x39ff14, 0x1fb6ff, 0xff2bd6];
+    [3, 4.2, 5.4].forEach((rad, k) => {
+      const rg = new THREE.Group(); rg.rotation.set(tilts[k][0], 0, tilts[k][1]);
+      const tor = new THREE.Mesh(new THREE.TorusGeometry(rad, .012, 6, 120), new THREE.MeshBasicMaterial({color:rcol[k], transparent:true, opacity:.55}));
+      tor.rotation.x = Math.PI / 2;
+      const holder = new THREE.Group(); rg.add(tor, holder); orbit.add(rg); rings.push({holder, rad, k, n:0});
+    });
+    techs.forEach((t, i) => {
+      const r = rings[i % 3], s = logo(t), ph = (r.n++) * 2.1 + i; s.scale.set(1.2, 1.2, 1);
+      s.position.set(Math.cos(ph) * r.rad, 0, Math.sin(ph) * r.rad); r.holder.add(s);
+    });
+
+    /* switch button */
+    let mode = 0;
+    const names = ['Network', 'Binary tunnel', 'Orbit'], btn = document.getElementById('mode');
+    btn.textContent = 'Animation: ' + names[0];
+    btn.addEventListener('click', () => { mode = (mode + 1) % 3; btn.textContent = 'Animation: ' + names[mode]; if (reduce) frame(); });
+
+    /* falling data */
+    const N = 700, rp = new Float32Array(N * 3), rs = new Float32Array(N);
+    for (let i = 0; i < N; i++) {
+      rp[i*3] = (Math.random() - .5) * 28; rp[i*3+1] = (Math.random() - .5) * 18; rp[i*3+2] = (Math.random() - .5) * 16 - 4;
+      rs[i] = .01 + Math.random() * .03;
+    }
+    const rg = new THREE.BufferGeometry(); rg.setAttribute('position', new THREE.BufferAttribute(rp, 3));
+    scene.add(new THREE.Points(rg, new THREE.PointsMaterial({color:0x39ff14, size:.05, transparent:true, opacity:.55})));
+
+    let mx = 0, my = 0, sp = 0, spS = 0;
+    addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; });
+    const onScroll = () => { sp = scrollY / Math.max(1, document.documentElement.scrollHeight - innerHeight); };
+    addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+    function resize(){
+      renderer.setSize(innerWidth, innerHeight, false);
+      camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix();
+    }
+    addEventListener('resize', resize); resize();
+
+    const clock = new THREE.Clock();
+    function frame(){
+      const t = clock.getElapsedTime();
+      spS += (sp - spS) * .06;
+      const wide = innerWidth > 800;
+      group.position.x = wide ? Math.cos(spS * Math.PI * 3) * 2.8 : 0;
+      group.position.y = wide ? Math.sin(spS * Math.PI * 2) * .8 : 1.6 - spS * 1.2;
+      const s = wide ? 1 : .7; group.scale.setScalar(s * (1 + Math.sin(spS * Math.PI) * .25));
+      group.rotation.y += ((t * .18 + spS * 6 + mx * 1.2) - group.rotation.y) * .08;
+      group.rotation.x += ((my * .9 + spS * 1.5) - group.rotation.x) * .08;
+      core.rotation.x = -t * .7; core.rotation.y = t * .5;
+      core2.rotation.x = t * .9; core2.rotation.z = t * .6;
+      dots.material.size = .1 + Math.sin(t * 3) * .025;
+      glyphs.forEach(g => { g.position.y = g.userData.y + Math.sin(t * .8 + g.userData.p) * .25; });
+      for (let i = 0; i < N; i++) { rp[i*3+1] -= rs[i]; if (rp[i*3+1] < -9) rp[i*3+1] = 9; }
+      rg.attributes.position.needsUpdate = true;
+      group.visible = mode === 0; tunnel.visible = mode === 1; orbit.visible = mode === 2;
+      if (mode === 1) {
+        const v = .08 + spS * .25;
+        layers.forEach(p => { const a = p.userData.arr; for (let i = 0; i < TN; i++) { a[i*3+2] += v; if (a[i*3+2] > 8) a[i*3+2] = -45; } p.geometry.attributes.position.needsUpdate = true; });
+        flyers.forEach(f => { const d = f.userData; d.z += v * 1.2; if (d.z > 7) d.z = -45; const r = 3.2 + Math.sin(t + d.a) * .6; f.position.set(Math.cos(d.a + t * .2) * r, Math.sin(d.a + t * .2) * r, d.z); });
+        tunnel.rotation.z = t * .05 + spS * 2;
+        tunnel.rotation.y += (mx * .3 - tunnel.rotation.y) * .05; tunnel.rotation.x += (my * .3 - tunnel.rotation.x) * .05;
+      }
+      if (mode === 2) {
+        orbit.position.copy(group.position); orbit.scale.copy(group.scale); orbit.rotation.copy(group.rotation);
+        rings.forEach(r => { r.holder.rotation.y = t * (.25 + r.k * .12) * (r.k % 2 ? -1 : 1); });
+        oc1.rotation.x = -t * .7; oc1.rotation.y = t * .5; oc2.rotation.x = t * .9; oc2.rotation.z = t * .6;
+      }
+      renderer.render(scene, camera);
+      if (!reduce) requestAnimationFrame(frame);
+    }
+    reduce ? (frame(), addEventListener('scroll', frame, {passive:true})) : frame();
+  } else {
+    canvas.style.background = 'radial-gradient(circle at 70% 40%, #14141c, #000 60%)';
+  }
+
+  /* ---------- camera focus box (hero only) ---------- */
+  const focus = document.getElementById('focus'), hero = document.getElementById('hero');
+  if (!reduce && matchMedia('(pointer:fine)').matches) {
+    let tx = 0, ty = 0, x = 0, y = 0, inHero = false;
+    addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; inHero = e.clientY < hero.getBoundingClientRect().bottom - 40; focus.classList.toggle('on', inHero); });
+    addEventListener('pointerdown', () => { focus.classList.add('snap'); setTimeout(() => focus.classList.remove('snap'), 180); });
+    (function loop(){ x += (tx - x) * .18; y += (ty - y) * .18; focus.style.transform = `translate(${x}px,${y}px)`; requestAnimationFrame(loop); })();
+  }
+
+  /* ---------- 3D tilt on cards ---------- */
+  if (!reduce) {
+    document.querySelectorAll('.tilt').forEach(el => {
+      el.addEventListener('pointermove', e => {
+        const r = el.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        el.style.transform = `perspective(700px) rotateY(${px * 14}deg) rotateX(${-py * 14}deg) translateY(-4px)`;
+      });
+      el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+    });
+  }
+})();
+</script>
 </body>
-
 </html>
